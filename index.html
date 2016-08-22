@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="twitterFeed">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="description" content="Title ">
+<meta name="keywords" content="Title ">
+<meta name="author" content="Title">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twitter Feed</title> 
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+<link href="css/basscss.min.css" rel="stylesheet">
+<script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js">
+  </script>
+<script src="js/app.js"></script>
+</head>
+
+<body>
+
+<section id="wrapper" class="mx4 my4" >
+	<header>
+    	<div class="clearfix px3 head-main">
+              <div class="left head-left">
+                    <ul class="list-reset h3 m0 p0">
+                      <li class="inline-block mr3 pr3 pt2 pb2 border-right xs-hide"><a class="circle border center block" href="#"><i class="fa fa-leaf" aria-hidden="true"></i></a></li>
+                      <li class="inline-block mr2 pt2 pb2"><a class="circle border center block" href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+                      <li class="inline-block mr2 pt2 pb2 xs-hide sm-hide"><a class="circle border center block" href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                      <li class="inline-block mr2 pt2 pb2 xs-hide sm-hide"><a class="circle border center block" href="#"><i class="fa fa-hashtag" aria-hidden="true"></i></a></li>
+                    </ul>
+              </div>
+              
+              <div class="right head-right">
+              		<ul class="list-reset h3 m0 p0">
+                      <li class="left mr1 xs-hide "><div class="p1  m1 mt2 rounded border form-box">
+                      	<form class="m0 p0 ">
+                          <label for="search" class="hide">Search</label>
+                          <input type="text" class="border-none h4 p1 input" placeholder="Search" />
+                          <button type="button" class="border-none btn-search h3"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                      </div></li>
+                      <li class="left login-img pt2"><img class="circle " src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="45" height="45" /></li>
+                    </ul>
+              </div>
+              
+              <div class="overflow-hidden logo-section">
+                <h1 class="h1 m0 p0 pt2 center bule"><i class="fa fa-twitter" aria-hidden="true"></i></h1>
+              </div>
+            </div>
+    </header>
+    
+    <section id="center" class="pb0 pt4 pl4	pr4 " ng-controller="MainCtrl as mainctrl">
+    
+    <div id="tab-sec" class=" md-col-12 lg-col-7 mx-auto">
+              <ul class="tabs table p0 m0 mb3 center">
+                        <li ng-class="{active: mainctrl.isActive('/tweets')|| mainctrl.isActive('/')}"><a href="#tweets" ng-click="mainctrl.open('tweets')"><span class="block">Tweets</span> <strong>200</strong></a></li>
+                        <li ng-class="{active: mainctrl.isActive('/photos')}"><a href="#photos" ng-click="mainctrl.open('photos')"><span class="block">Photo/Videos</span> <strong>200</strong></a></li>
+                        <li ng-class="{active: mainctrl.isActive('/following')}"><a href="#following" ng-click="mainctrl.open('following')"><span class="block">Following</span> <strong>200</strong></a></li>
+                        <li ng-class="{active: mainctrl.isActive('/followers')}"><a href="#followers" ng-click="mainctrl.open('followers')"><span class="block">Followers</span> <strong>1M</strong></a></li>
+              </ul>
+            <div ng-switch on="mainctrl.tab">
+              
+              <section class="tabblock">
+                <div ng-switch-when="tweets">
+				<div ng-controller="TweetsCtrl as ctrl">
+                 	 <ul class="list-reset tweet-post">
+                          <li ng-repeat="item in ctrl.list" class=" p3  border-bottom">
+                          	<div class="clearfix ">
+                                  <div class="left post-aimg mr3 "><img class="circle " src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="60" height="60" /></div>
+                                  <div class="overflow-hidden tabblock-info">
+                                 	 <div class="clearfix mb1 ">
+                                      <h3 class="m0 left h3" ng-bind="item.name"><span class="h3" ng-bind="item.url"></span></h3>
+                                      <div class="right"><h3 class="m0 h3"><span class="h3">2m</span></h3></div>
+                                    </div> <!--/head-->
+                                   	<div class="post-text">
+                                    <p class="m0 p0 black-light h3" ng-bind="item.tweet"></p>
+									<img class="fit" ng-src="{{item.img}}" alt="" ng-show="ctrl.checkImg(item.img)">
+                                    </div>
+                                    
+                                      <div class="clearfix pt2 post-down h3">
+                                          	<ul class="list-reset">
+                                                  <li class="inline-block mr2"><a href="#"><i class="fa fa-share" aria-hidden="true"></i></a></li>
+                                                  <li class="inline-block mr2"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                  <li class="inline-block mr2"><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i> 20</a></li>
+                                                  <li class="inline-block mr2"><a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></li>
+                                                  <li class="inline-block m0 right"><a href="#"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                      </div>
+                                    
+                                  </div>
+                                </div>
+                          
+                          </li>
+                                               
+                    </ul>
+					</div>
+                </div>
+                 <div ng-switch-when="photos">
+				  <div ng-controller="PhotosCtrl as ctrl">
+				   <div ng-repeat="item in ctrl.list">
+				    <p class="p3" ng-bind="item.text"></p>
+				    </div>
+                  </div>				
+				</div>
+				  <div ng-switch-when="following">
+				   <div ng-controller="FollowingCtrl as ctrl">
+				    <div ng-repeat="item in ctrl.list">
+				     <p class="p3" ng-bind="item.text"></p>
+				    </div>
+                   </div>	
+				  </div>
+				   <div ng-switch-when="followers">
+				     <div ng-controller="FollowersCtrl as ctrl">
+				      <div ng-repeat="item in ctrl.list">
+				       <p class="p3" ng-bind="item.text"></p>
+				      </div>
+                    </div>	
+				   </div>
+    
+                
+              </section>
+			  </div>
+  
+    </div>
+    
+      </section>
+
+</section> <!--/--->
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+</body>
+</html>
