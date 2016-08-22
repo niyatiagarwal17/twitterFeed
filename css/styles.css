@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
+body {font-size: 14px; color: #605e58; font-family: 'Open Sans', sans-serif; font-weight:400; margin:0; background:#f5cea6; -webkit-backface-visibility: hidden;}
+*{ outline:none !important;}
+
+#wrapper{ background:#f2eee8; box-shadow: 0 3px 12px #7f6b56; position:relative;}
+#wrapper::after { background:url(../img/bg-shadow.jpg) no-repeat; background-size:100%; content: ""; height: 110px; margin-top: -15px; position: absolute; width: 100%; z-index: -9;}
+header{ background:#fffbf5; box-shadow:0 0px 3px #aeaead; }
+.head-left{}
+.head-left a{ color:#605e58; width:50px; height:50px;}
+.head-left a:hover{ color:#fff; background:#80a8cc;}
+.head-left a i { padding-top: 16px;}
+.head-left .border, .head-left .border-right, .head-left .left{ border-color:#e5e1db;}
+.head-right .rounded{ border-radius:30px;}
+.head-right  .btn-search{ background:none;}
+.form-box{ margin-top:2px;}
+.form-box .input{ background:none;}
+.right.head-right { padding-top: 4px;}
+.logo-section h1{ font-size:40px;  margin-top: -6px;}
+.bule{ color:#80a8cc;}
+
+
+#tab-sec ul.tabs { list-style-type: none; background:#fffbf5; width:100%; box-shadow:0 0px 3px #aeaead;}
+#tab-sec ul.tabs li { float: left; width:25%; text-transform:uppercase; font-size:16px; font-weight:400;}
+#tab-sec ul.tabs li a { color: #c6c1b0; text-decoration: none; padding:15px 15px 8px; display:block;  border-bottom:5px solid transparent; }
+#tab-sec ul.tabs li a strong{ color:#605e58; font-size:25px;}
+#tab-sec ul.tabs li.active {  border-bottom:5px solid #80a8cc; }
+#tab-sec .tabblock{ background:#fffbf5; box-shadow:0 0px 3px #aeaead;}
+
+.tabblock .border-bottom{border-color:#e5e1db;}
+
+.tabblock-info h3 span{color: #c6c1b0; font-weight:400;}
+.tabblock-info p{ font-weight:400;}
+.black-light{ color:#605e58;}
+.post-down a{ color:#c6c1b0; text-decoration:none;}
+.post-down a:hover{ color:#605e58;}
+
+.clr {  clear: both;}
+
+
+@media only screen and (max-width : 991px) {
+header .head-main{ padding:0 10px;}
+.head-left li:first-child{padding-right:5px;}
+.head-left li{ margin:0 8px 0 0; }
+.head-left a { height:40px;  width: 40px;}	
+.head-left a i { padding-top: 11px;}
+.form-box .input{ width:70px;}
+}
+
+@media only screen and (max-width : 767px) {
+
+#wrapper{ margin:15px;}
+#center{ padding:15px;}
+#center .tweet-post li{ padding:16px 15px;}
+#center .tweet-post .post-aimg{ margin-right:10px;}
+#center .tweet-post .post-aimg img{ width:45px; height:45px;}
+.form-box .input{ width:0px;padding:0;}
+
+}
+
+@media only screen and (max-width : 519px) {
+.logo-section h1 { margin-left: -25px;}
+#tab-sec ul.tabs li { float:none; width:auto;}
+#center .post-down .list-reset li{ margin:0; padding:0;}
+.login-img img{ width:40px; height:40px;}
+
+}
